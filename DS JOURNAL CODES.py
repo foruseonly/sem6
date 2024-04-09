@@ -353,45 +353,54 @@ plt.show()
 
 
 # In[ ]:
+import numpy as np
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
 
+from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.datasets import load_breast_cancer
+from sklearn.metrics import confusion_matrix, f1_score, roc_auc_score
 
-import numpy as np 
-import pandas as pd 
-import matplotlib.pyplot as plt 
-from sklearn.datasets import load_breast_cancer 
-from sklearn.metrics import confusion_matrix 
-from sklearn.neighbors import KNeighborsClassifier 
-from sklearn.model_selection import train_test_split 
-import seaborn as sns 
-breast_cancer_df = load_breast_cancer() 
-x=pd.DataFrame(breast_cancer_df.data,columns=breast_cancer_df.feature_names) 
-x.head() 
-columns_to_select = ["mean area", "mean compactness"]
-x=x[columns_to_select]
-x.head() 
-y=pd.Categorical.from_codes(breast_cancer_df.target,breast_cancer_df.target_names) 
-print(y) 
-y=pd.get_dummies(y,drop_first=True) 
-print(y) 
-X_train, X_test, Y_train, Y_test = train_test_split(x, y, random_state=1) 
-knn=KNeighborsClassifier(n_neighbors=5,metric="euclidewan") 
-knn.fit(X_train,Y_train) 
-sns.set() 
-sns.scatterplot(x="mean area",y="mean compactness",hue="benign",data=X_text.join(Y_test,how="outer")) 
-y_pred=knn.predict(X_test) 
-plt.scatter(X_test["mean area"],X_test["mean compactness"],c=y_pred,cmap="coolwarm",alpha=0.7) 
-cf=confusion_matrix(Y_test,y_pred) 
-print(cf) 
-labels=["True Negative","False Positive","False Negative","True Positive"] 
-labels=np.asarray(labels).reshape(2,2) 
-categories=["Zero","One"] 
-ax=plt.subplot() 
-sns.heatmap(cf,annot=True,ax=ax) 
-ax.set_xlabel("Predicted Values") 
-ax.set_ylabel("Actual Values") 
-ax.set_title("Confusion Matrix") 
-ax.xaxis.set_ticklabels(["Malignant","Benign"]) 
-ax.yaxis.set_ticklabels(["Malignant","Benign"]) 
+bc = load_breast_cancer()
+df = pd.DataFrame(bc.data, columns = bc.feature_names)
+df.head()
+x = df[['mean area', 'mean compactness']]
+print(x)
+
+y = pd.Categorical.from_codes(bc.target, bc.target_names)
+y = pd.get_dummies(y, drop_first=True)
+print(y)
+x_train, x_test, y_train, y_test = train_test_split(x,y,random_state = 1)
+
+knn = KNeighborsClassifier(n_neighbors=5, metric='euclidean')
+knn.fit(x_train,y_train)
+y_pred = knn.predict(x_test)
+print(y_pred)
+plt.scatter(x_test['mean area'], x_test['mean compactness'], c= y_pred, cmap='coolwarm')
+plt.show()
+sns.scatterplot(x='mean area',y='mean compactness', hue = 'benign', data=x_test.join(y_test, how = 'outer'))
+cf = confusion_matrix(y_test,y_pred)
+ax = plt.subplot()
+
+sns.heatmap(cf, ax=ax, annot = True)
+ax.set_title('Confusion Matrix')
+ax.set_xlabel('Predicted')
+ax.set_ylabel('Actual')
+ax.xaxis.set_ticklabels(['MAlignant','Benign'])
+ax.yaxis.set_ticklabels(['MAlignant','Benign'])
+tp,fn,fp,tn = confusion_matrix(y_test, y_pred,labels=[1,0]).reshape(-1)
+
+print(tp,fn,fp,tn)
+a = (tp+fp)/(tp+fn+fp+tn)
+p = tp/(tp+fp)
+r = tp/(tp+fn)
+print(a)
+print(p)
+print(r)
+print(f1_score(y_pred,y_test))
+print(roc_auc_score(y_pred,y_test))
 
 
 # In[ ]:
