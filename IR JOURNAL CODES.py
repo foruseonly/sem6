@@ -95,8 +95,7 @@ import networkx as nx
 import pylab as plt 
 G=nx.DiGraph() 
 [G.add_node(k) for k in ["A","B","C","D","E","F","G"]] 
-G.add_edges_from([ 
-    ('A',"G"),('G','A'),('A','D'),(' A','C'),('B','A'),('D','B'),('D','F'),('E','A'),('F','A'),('A','C') ]) 
+G.add_edges_from([ ('A','G'),('G','A'),('A','D'),(' A','C'),('B','A'),('D','B'),('D','F'),('E','A'),('F','A'),('A','C') ]) 
 ppr1 = nx.pagerank(G)
 print("page rank value",ppr1) 
 pos=nx.spiral_layout(G) 
